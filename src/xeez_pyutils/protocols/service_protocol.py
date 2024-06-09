@@ -1,7 +1,7 @@
 from typing import Generic, List, Protocol, TypeVar
 
 from pydantic import BaseModel
-from src.common import CommonQueryParams
+from src.xeez_pyutils.common import CommonQueryParams
 
 SchemaType = TypeVar("SchemaType", bound=BaseModel)
 
