@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pyutils"
+version = "0.1.0"
+description = ""
+authors = ["Alexandre Bertuol <axdbertuol@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+sqlalchemy = "^2.0.30"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
