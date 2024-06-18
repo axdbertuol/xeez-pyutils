@@ -61,12 +61,12 @@ class GenericReadable(Protocol, Generic[ModelType]):
     com paginação.
     """
 
-    def get(self, model_type: Type[ModelType], id: int) -> ModelType | None:
+    def get(self, model_type: Type[ModelType], id: Any) -> ModelType | None:
         """
         Obtém um único objeto pelo seu ID.
 
         Parâmetros:
-        - id (int): O ID do objeto a ser recuperado.
+        - id (Any): O ID do objeto a ser recuperado.
 
         Retorna:
         - ModelType: O objeto recuperado;
@@ -100,12 +100,12 @@ class Readable(Protocol, Generic[ModelType]):
     com paginação.
     """
 
-    def get(self, id: int) -> ModelType | None:
+    def get(self, id: Any) -> ModelType | None:
         """
         Obtém um único objeto pelo seu ID.
 
         Parâmetros:
-        - id (int): O ID do objeto a ser recuperado.
+        - id (Any): O ID do objeto a ser recuperado.
 
         Retorna:
         - ModelType: O objeto recuperado;
@@ -139,7 +139,7 @@ class RepositoryProtocol(
     que realiza operações de CRUD (Create, Read, Update, Delete) em um tipo de modelo específico.
 
     Métodos:
-    - get(id: int) -> ModelType | None: Obtém um único objeto pelo seu ID.
+    - get(id: Any) -> ModelType | None: Obtém um único objeto pelo seu ID.
     - get_multi(skip: int = 0, limit: int = 10) -> List[ModelType]: Obtém uma lista de objetos, com suporte para paginação.
     - create(db_obj: ModelType, obj_in: dict) -> ModelType: Cria um novo objeto no banco de dados.
     - update(db_obj: ModelType, obj_in: dict) -> None: Atualiza um objeto existente no banco de dados.

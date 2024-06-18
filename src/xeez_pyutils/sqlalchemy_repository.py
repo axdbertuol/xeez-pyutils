@@ -34,12 +34,12 @@ class SQLAlchemyRepository(RepositoryProtocol[ModelType]):
         self.session = session
         self.model_type = model_type
 
-    def get(self, model_type: Type[ModelType], id: int) -> ModelType | None:
+    def get(self, model_type: Type[ModelType], id: Any) -> ModelType | None:
         """
         Obtém um objeto do banco de dados pelo ID.
 
         Args:
-            id (int): O ID do objeto a ser obtido.
+            id (Any): O ID do objeto a ser obtido.
 
         Returns:
             Any: O objeto obtido, se encontrado; caso contrário, None.

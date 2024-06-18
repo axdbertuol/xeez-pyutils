@@ -1,4 +1,4 @@
-from typing import Generic, List, Protocol, TypeVar
+from typing import Any, Generic, List, Protocol, TypeVar
 
 from pydantic import BaseModel
 from xeez_pyutils.common import CommonQueryParams
@@ -19,10 +19,10 @@ class ServiceProtocol(Protocol, Generic[SchemaType]):
 
     Métodos:
     - create_item(body: SchemaType) -> SchemaType: Cria um novo item.
-    - fetch_item(item_id: int) -> SchemaType: Busca um item pelo seu ID.
+    - fetch_item(item_id: Any) -> SchemaType: Busca um item pelo seu ID.
     - fetch_many_items(q: CommonQueryParams) -> List[SchemaType]: Busca múltiplos itens com suporte a paginação.
-    - update_item(item_id: int, body: SchemaType) -> None: Atualiza um item existente.
-    - delete_item(item_id: int) -> None: Deleta um item pelo seu ID.
+    - update_item(item_id: Any, body: SchemaType) -> None: Atualiza um item existente.
+    - delete_item(item_id: Any) -> None: Deleta um item pelo seu ID.
     """
 
     def create_item(self, body: SchemaType) -> SchemaType:
@@ -37,12 +37,12 @@ class ServiceProtocol(Protocol, Generic[SchemaType]):
         """
         ...
 
-    def fetch_item(self, item_id: int) -> SchemaType:
+    def fetch_item(self, item_id: Any) -> SchemaType:
         """
         Busca um item pelo seu ID.
 
         Parâmetros:
-        - item_id (int): O ID do item a ser buscado.
+        - item_id (Any): O ID do item a ser buscado.
 
         Retorna:
         - SchemaType: O item encontrado.
@@ -61,12 +61,12 @@ class ServiceProtocol(Protocol, Generic[SchemaType]):
         """
         ...
 
-    def update_item(self, item_id: int, body: SchemaType) -> None:
+    def update_item(self, item_id: Any, body: SchemaType) -> None:
         """
         Atualiza um item existente.
 
         Parâmetros:
-        - item_id (int): O ID do item a ser atualizado.
+        - item_id (Any): O ID do item a ser atualizado.
         - body (SchemaType): O corpo do item com os dados atualizados, conforme o esquema.
 
         Retorna:
@@ -74,12 +74,12 @@ class ServiceProtocol(Protocol, Generic[SchemaType]):
         """
         ...
 
-    def delete_item(self, item_id: int) -> None:
+    def delete_item(self, item_id: Any) -> None:
         """
         Deleta um item pelo seu ID.
 
         Parâmetros:
-        - item_id (int): O ID do item a ser deletado.
+        - item_id (Any): O ID do item a ser deletado.
 
         Retorna:
         - None
